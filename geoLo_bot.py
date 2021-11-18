@@ -19,8 +19,8 @@ def main():
         
 def mandar_datos(): 
     enviar=json.dumps(main(), indent=2)
-    bot_token = '1417980393:AAFbbbSzn-PcvUF6aij3Q9yTBExyhjNX89Y'
-    bot_chatID = '-1001186680261'#Grupo
+    bot_token = 'Tu token'
+    bot_chatID = 'chat ID'#Grupo
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + enviar
     requests.get(send_text)
 
