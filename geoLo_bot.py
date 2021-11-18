@@ -10,11 +10,14 @@ def main():
     objetivo='https://ipinfo.io/json'
     contenido=urllib.request.urlopen(objetivo)
     cargajson=json.loads(contenido.read())
-    #print(cargajson)
+    print(cargajson)
     for dato in cargajson:
         print(dato)
-        mensaje=dato + " : " + str(cargajson[dato])
-        lista.append(mensaje)
+        if(dato == "ip" or dato == "hostname" or dato == "city" or dato == "region" or dato == "country" or dato == "org"):
+            mensaje=dato + " -> " + str(cargajson[dato])
+            lista.append(mensaje)
+    
+    #print(lista)
     return lista
         
 def mandar_datos(): 
@@ -24,7 +27,7 @@ def mandar_datos():
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + enviar
     requests.get(send_text)
 
-main()
+#main()
 mandar_datos()
 
 
